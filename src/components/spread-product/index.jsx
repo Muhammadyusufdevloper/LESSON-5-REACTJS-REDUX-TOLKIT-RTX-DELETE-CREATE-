@@ -4,25 +4,35 @@ import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { wishlist } from '../../context/slice/wishlistSlice';
 import Loading from '../loading';
-import { Link } from 'react-router-dom';
-const SpreadProduct = ({ data, loading, isAdmin, deleteProduct }) => {
-    let wishlistData = useSelector(state => state.wishlist)
-    let dispatch = useDispatch()
+import { useNavigate } from 'react-router-dom';
 
+const SpreadProduct = ({ data, loading, isAdmin, deleteProduct }) => {
+    const wishlistData = useSelector(state => state.wishlist);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const handelClick = (id) => {
+        navigate(`/single-rout/${id}`);
+    };
+
+    const handleWishlistClick = (e, product) => {
+        e.stopPropagation();
+        dispatch(wishlist(product));
+    };
 
     const product = data?.map((product) => (
         <div className="spread-product__card" key={product.id}>
-            <Link to={`/single-rout/${product.id}`}>
-                <div className="spread-product__image-box">
-                    <img src={product.images} alt="" />
-                    <button onClick={() => dispatch(wishlist(product))} className='spread-product__wishlist-btn'> {
-                        wishlistData.some((el) => el.id === product.id) ?
-                            <FaHeart /> :
-                            <FaRegHeart />
+            <div onClick={() => handelClick(product.id)} className="spread-product__image-box">
+                <img src={product.images} alt="" />
+                <button
+                    onClick={(e) => handleWishlistClick(e, product)}
+                    className='spread-product__wishlist-btn'>
+                    {wishlistData.some((el) => el.id === product.id) ?
+                        <FaHeart /> :
+                        <FaRegHeart />
                     }
-                    </button>
-                </div>
-            </Link>
+                </button>
+            </div>
             <div className="spread-product__info-box">
                 <h3 className='spread-product__title'>{product.title}</h3>
                 <p className='spread-product__text'><span>Price:</span>{product.price}</p>
@@ -35,7 +45,8 @@ const SpreadProduct = ({ data, loading, isAdmin, deleteProduct }) => {
                 }
             </div>
         </div>
-    ))
+    ));
+
     return (
         <>
             <div className="spread-product__cards">
@@ -47,13 +58,14 @@ const SpreadProduct = ({ data, loading, isAdmin, deleteProduct }) => {
                 }
             </div>
         </>
-    )
-}
+    );
+};
+
 SpreadProduct.propTypes = {
     data: PropTypes.array,
     loading: PropTypes.bool,
     isAdmin: PropTypes.bool,
-    deleteProduct:PropTypes.array
+    deleteProduct: PropTypes.func
 };
 
 export default SpreadProduct;
