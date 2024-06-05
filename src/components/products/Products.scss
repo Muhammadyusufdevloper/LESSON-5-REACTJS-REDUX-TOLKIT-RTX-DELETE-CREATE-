@@ -1,0 +1,40 @@
+.product {
+  margin-bottom: 45px;
+  &__top-box {
+    margin-bottom: 48px;
+  }
+  &__search {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 480px;
+    box-shadow: 0px 2px 9px 0px #0000000e;
+    input {
+      padding: 18px 18px;
+      flex-grow: 1;
+      border: none;
+      background-color: transparent;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;
+      color: #111517;
+      outline: none;
+      &::placeholder {
+        color: #848484;
+      }
+    }
+    button {
+      padding: 19px 24px 19px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: transparent;
+      border: none;
+      svg {
+        width: 18px;
+        height: 18px;
+        color: #848484;
+      }
+    }
+  }
+}

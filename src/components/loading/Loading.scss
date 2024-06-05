@@ -1,0 +1,55 @@
+.loading {
+  margin-bottom: 45px;
+  width: 100%;
+  &__cards {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 75px;
+  }
+
+  &__card {
+    width: 263.3px;
+    box-shadow: 0px 0px 7px 2px #00000008;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  &__img-box {
+    width: 100%;
+    height: 160px;
+  }
+  &__info-box {
+    padding: 24px 24px 46px;
+    div {
+      &:nth-child(1) {
+        height: 52px;
+        width: 100%;
+        margin-bottom: 16px;
+      }
+      &:nth-child(2) {
+        height: 16px;
+        width: 50%;
+        margin-bottom: 8px;
+      }
+      &:nth-child(3) {
+        height: 16px;
+        width: 50%;
+      }
+    }
+  }
+}
+
+.loading__animation {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

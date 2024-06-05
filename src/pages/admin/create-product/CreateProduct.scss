@@ -1,0 +1,37 @@
+.crate-product {
+  margin-top: 30px;
+  h1 {
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 32.74px;
+    color: #111517;
+  }
+  form{
+    max-width: 500px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    flex-direction: column;
+    div{
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        width: 100%;
+        input{
+            width: 100%;
+            padding: 15px 10px;
+            outline: none;
+            border: 1px solid #11151744;
+            border-radius: 5px;
+        }
+    }
+    button{
+        padding: 8px 25px;
+        border-radius: 5px;
+        border: none;
+        background-color: #111517;
+        color: #fff;
+    }
+  }
+}

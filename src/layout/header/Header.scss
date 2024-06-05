@@ -1,0 +1,59 @@
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  padding: 24px 0 23px;
+  box-shadow: 0px 2px 4px 0px #0000000e;
+  margin-bottom: 48px;
+  background-color: #fff;
+  z-index: 999;
+  &__active {
+    padding: 18px 0 17px;
+    background-color: #fff;
+  }
+  &__navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    div{
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+  }
+  &__site-logo {
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 32.74px;
+    text-align: left;
+    color: #111517;
+  }
+  &__wishlist-link{
+    position: relative;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    span{
+      position: absolute;
+      top: -8px;
+      right: -10px;
+      width: 16px;
+      height: 16px;
+      font-size: 10px;
+      background-color: red;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: #ffffff;
+    }
+  }
+  &__admin-link {
+    font-family: Nunito Sans;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 21.82px;
+    color: #111517;
+  }
+}
